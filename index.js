@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 
 const indexRoute = require("./route/index")
 
-mongoose.connect("mongodb://localhost/mybrary", {useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL || "mongodb://localhost/mybrary", {useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
 db.on('error', error => console.error(error) )
